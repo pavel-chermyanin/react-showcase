@@ -20,13 +20,24 @@ const GoodsItem = (props) => {
         img
     } = transformObj(props);
 
+    const onAddItemToCart = () => {
+        const newObj = {
+            id,
+            name,
+            description,
+            price,
+            img
+        };
+        props.addToBasket(newObj)
+    }
+    
     return (
-        <div 
-        style={{
-            display: 'flex',
-            flexDirection: 'column'
-        }}
-        className="card ">
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column'
+            }}
+            className="card ">
             <div className="card-image">
                 <img src={img} alt={name} />
 
@@ -34,19 +45,21 @@ const GoodsItem = (props) => {
             <div style={{
                 flexGrow: 1
             }}
-            className="card-content">
+                className="card-content">
                 <span className="card-title">{name}</span>
                 <p>{description}</p>
             </div>
-                <div 
+            <div
                 className="card-action card-footer">
-                    <button className="btn">Купить</button>
-                    <span
+                <button
+                    onClick={onAddItemToCart}
+                    className="btn">Купить</button>
+                <span
                     style={{
                         fontSize: '1.6rem'
-                    }} 
+                    }}
                     className="right">{price} руб</span>
-                </div>
+            </div>
         </div>
     )
 }

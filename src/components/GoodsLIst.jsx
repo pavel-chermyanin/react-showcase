@@ -11,7 +11,9 @@ const GoodsLIst = (props) => {
     return (
         <div className="goods">
             {goods.map(item => {
-                return <GoodsItem key={item.mainId} {...item}/>
+                return <GoodsItem
+                addToBasket={props.addToBasket} 
+                key={item.mainId} {...item}/>
             })}
         </div>
     )

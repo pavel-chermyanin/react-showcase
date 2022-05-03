@@ -94,3 +94,10 @@ nav {
     transform: translateY(0);
   }
 }
+.basket-item{
+  display: flex;
+  align-items: center;
+}
+.item__inner{
+  flex-grow: 1;
+}

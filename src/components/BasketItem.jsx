@@ -2,6 +2,9 @@
 
 const BasketItem = (props) => {
     const {
+        incQuantity,
+        decQuantity,
+        removeFromBasket,
         id,
         name,
         price,
@@ -9,9 +12,19 @@ const BasketItem = (props) => {
     } = props;
     return (
         <li className="collection-item ">
-            {name} x{quantity} = {price}
-            <span class="secondary-content">
-                <i class="material-icons basket-delete">close</i>
+            {name} 
+            <i
+                onClick={() => decQuantity(id)}
+                className="material-icons basket-quantity">remove</i>
+            x{quantity}
+            <i
+                onClick={() => incQuantity(id)}
+                className="material-icons basket-quantity">add</i>
+            = {price * quantity} руб
+            <span
+                onClick={() => removeFromBasket(id)}
+                className="secondary-content">
+                <i className="material-icons basket-delete">close</i>
             </span>
         </li>
     )

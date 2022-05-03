@@ -9,7 +9,7 @@ const Cart = (props) => {
         <div
             onClick={handleBasket}
             className="cart blue lighten-2 white-text">
-            <i class="material-icons">
+            <i className="material-icons">
                 local_grocery_store
             </i>
             {quantity ?

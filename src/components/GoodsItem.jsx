@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { ShopContext } from "../context";
+
 
 
 const GoodsItem = (props) => {
@@ -12,6 +15,8 @@ const GoodsItem = (props) => {
         }
     }
 
+    const {addToBasket} = useContext(ShopContext)
+
     const {
         id,
         name,
@@ -19,6 +24,8 @@ const GoodsItem = (props) => {
         price,
         img
     } = transformObj(props);
+
+
 
     const onAddItemToCart = () => {
         const newObj = {
@@ -28,7 +35,7 @@ const GoodsItem = (props) => {
             price,
             img
         };
-        props.addToBasket(newObj)
+        addToBasket(newObj)
     }
     
     return (
